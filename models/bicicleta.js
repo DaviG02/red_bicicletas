@@ -1,12 +1,12 @@
-var Bicicleta = function (id, color, modelo, ubicacion) {
-    this.id = id;
+var Bicicleta = function (code, color, modelo, ubicacion) {
+    this.code = code;
     this.color = color;
     this.modelo = modelo,
     this.ubicacion = ubicacion;
 }
 
 Bicicleta.prototype.toString = function () {
-    return 'id: ' + this.id + " | color: " + this.color;
+    return 'code: ' + this.code + " | color: " + this.color;
 }
 
 Bicicleta.allBicis = [];
@@ -14,18 +14,18 @@ Bicicleta.add = function(aBici){
     Bicicleta.allBicis.push(aBici);
 }
 
-Bicicleta.findById = function(aBiciId){  //Busqueda de colecciones
-    var aBici = Bicicleta.allBicis.find(x => x.id == aBiciId);
+Bicicleta.findByCode = function(aBiciCode){  //Busqueda de colecciones
+    var aBici = Bicicleta.allBicis.find(x => x.code == aBiciCode);
     if (aBici)
         return aBici;
     else 
-        throw new Error(`No existe una bicicleta con el id ${aBiciId}`);
+        throw new Error(`No existe una bicicleta con el code ${aBiciCode}`);
 }
 
-Bicicleta.removeById = function(aBiciId) { //Busca y elimina por ID
-    var aBici = Bicicleta.findById(aBiciId); 
+Bicicleta.removeByCode = function(aBiciCode) { //Busca y elimina por code
+    var aBici = Bicicleta.findByCode(aBiciCode); 
     for(var i = 0; i < Bicicleta.allBicis.length; i++){
-        if (Bicicleta.allBicis[i].id == aBiciId){
+        if (Bicicleta.allBicis[i].code == aBiciCode){
             Bicicleta.allBicis.splice(i, 1); //elimina
             break;
         }

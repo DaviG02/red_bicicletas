@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var bicicletaControllerAPI = require('../../controllers/api/bicicletaControllerAPI');
+var bicicletaController = require('../../controllers/api/bicicletaControllerAPI');
 
-router.get('/', bicicletaControllerAPI.bicicleta_list); //diferente
-router.post('/create', bicicletaControllerAPI.bicicleta_create);//
-router.put('/update', bicicletaControllerAPI.bicicleta_update);
-router.delete('/delete', bicicletaControllerAPI.bicicleta_delete);
-
-
+router.get('/', bicicletaController.bicicleta_list);
+router.post('/create', bicicletaController.bicicleta_create);
+router.put('/update', bicicletaController.bicicleta_update);
+router.delete('/delete', bicicletaController.bicicleta_delete);
 module.exports = router;
